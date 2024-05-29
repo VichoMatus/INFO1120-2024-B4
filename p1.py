@@ -1,16 +1,27 @@
 import sqlite3
 import pandas as pd
+
+#-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+
+#CREAMOS LA CONECCION CON LA BASE DE DATOS
 sql = sqlite3.connect("Sql_data/db_personas.db")
-curs = sql.cursor()
-df = pd.read_sql_query("SELECT nacionalidad from personas", sql)
-print(df)
-
-#prueba
+#USAMOS PANDAS PARA LEER LA BASE DE DATOS
+TPersonas = pd.read_sql_query("SELECT * FROM personas", sql)
+TSalarios = pd.read_sql_query("SELECT * FROM Salarios", sql)
 
 
+"""""
+-------------------------------------COSAS QUE PUEDEN SERVIRNOS-----------------------------------------------
 
-"""
-curs.execute("SELECT nacionalidad from personas")
-filas = curs.fetchall()
-print(filas)
-"""
+
+SUMA DE SALARIO TOTAL
+SalariosTotal = TSalarios["Sueldo"].sum()
+
+
+SELECT * 
+FROM Empleados E
+JOIN Departamentos D
+ON E.DepartamentoId = D.Id
+
+
+""" 
