@@ -4,8 +4,8 @@ from word_gen import example_contract
 
 
 
-def singular_data_to_contract(df: pd.DataFrame, index_row:int):
-    sub_df = df.iloc[index_row]
+def singular_data_to_contract(df: pd.DataFrame, Rol:str):
+    sub_df = df.iloc[Rol]
     date = sub_df['Fecha']
     rol = sub_df['Rol']
     address = sub_df['Residencia']
