@@ -2,9 +2,25 @@ import pandas as pd
 from word_gen import example_contract
 
 
+print("Ingrese 1 si quiere buscar la informacion de una persona en especifico")
+print("Ingrese 2 si quiere buscar la informacion de un grupo de personas")
+busqueda = ""
+eleccion = input(int())
 
 
-def singular_data_to_contract(df: pd.DataFrame, Rol:str):
+if eleccion == 1:
+    busqueda = "lista"
+    a = input("Ingrese el indice de la persona que desea buscar")
+else: 
+    busqueda = "eleccion"
+    a = int(input("Ingrese el primer rango de personas"))
+    b = int(input("Ingrese el segundo rango de personas") )   
+
+
+
+
+
+def singular_data_to_contract(df: pd.DataFrame, Rol:str, lista , eleccion):
     sub_df = df.iloc[Rol]
     date = sub_df['Fecha']
     rol = sub_df['Rol']
