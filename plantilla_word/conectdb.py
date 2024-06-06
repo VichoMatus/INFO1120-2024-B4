@@ -1,5 +1,4 @@
-import sqlite3, pandas as pd
-import data as dt
+import sqlite3 , pandas as pd, data as dt
 
 # Conectar con la base de datos
 sql = sqlite3.connect("Sql_data/db_personas.db")
@@ -12,3 +11,4 @@ TSalarios = pd.read_sql_query("SELECT * FROM salarios", sql)
 datos =  pd.read_sql_query("SELECT * FROM personas INNER JOIN salarios",sql)
 
 print (dt.singular_data_to_contract(datos,5))
+
