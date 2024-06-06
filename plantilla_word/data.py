@@ -2,6 +2,10 @@ import pandas as pd
 from word_gen import example_contract
 
 
+
+
+busqueda = ""
+eleccion = input(int())
 print ("Ingrese '1' para seleccionar datos por rut.")
 print ("Ingrese '2' para seleccionar datos por rango.")
 
@@ -16,7 +20,9 @@ try:
         print("Funcion Rango")
 except:
     print("Ingrese solo numeros.")
-    
+
+
+
 
 def singular_data_to_contract(df: pd.DataFrame, index_row:int):
     sub_df = df.iloc[index_row]
@@ -31,7 +37,6 @@ def singular_data_to_contract(df: pd.DataFrame, index_row:int):
     salary = sub_df['Sueldo']
     example_contract(date, rol, address, rut, full_name, nationality, birth_date, profession, str(salary))
 
-    
 
 
 
