@@ -8,5 +8,8 @@ sql = sqlite3.connect("Sql_data/db_personas.db")
 
 #CARGAR LAS TABLAS DE LA BASE DE DATOS EN UN DATAFRAME DE PANDAS
 innerJoin= pd.read_sql_query("SELECT * FROM personas INNER JOIN Salarios", sql)
-print (innerJoin)
 
+#---------------------------------------------------------------
+
+
+#holalaaosdalkjd
