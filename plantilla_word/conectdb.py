@@ -10,5 +10,5 @@ TSalarios = pd.read_sql_query("SELECT * FROM salarios", sql)
 # Todos los datos
 datos =  pd.read_sql_query("SELECT * FROM personas INNER JOIN salarios",sql)
 
-print (dt.singular_data_to_contract(datos,5))
+print (dt.singular_data_to_contract(datos, 2))
 
