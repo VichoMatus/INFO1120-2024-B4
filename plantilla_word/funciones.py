@@ -1,5 +1,6 @@
 import pandas as pd, sqlite3
 from word_gen import example_contract
+import CreacionContratos as CC
 
 def buscar_por_rut():
     # Solicitar al usuario que ingrese el RUT
@@ -28,10 +29,19 @@ def buscar_por_rut():
         
         print(datos)
         
+        pdf= int(input("Desea convertirlo a pdf? \nIngrese '1' para SI y '2' para NO : "))
+        if pdf < 0 and pdf>2 : print("Ingrese '1' o '2' porfavor. : ")
+        if pdf == 1 :
+            CC.PDFContratoPorRut(datos, rut)
+        else:
+            print("")
+            
+        
     except sqlite3.Error as e:
         print(f"Error al conectar con la base de datos: {e}")
     except Exception as e:
         print(f"Ocurrió un error: {e}")
+
 
 def buscar_por_nacionalidad():
     # Solicitar al usuario que ingrese la nacionalidad
@@ -63,6 +73,7 @@ def buscar_por_nacionalidad():
         print(f"Error al conectar con la base de datos: {e}")
     except Exception as e:
         print(f"Ocurrió un error: {e}")
+
 
 def buscar_por_rango_de_filas():
     try:
@@ -110,6 +121,7 @@ def buscar_por_rango_de_filas():
     except Exception as e:
         print(f"Ocurrió un error: {e}")
 
+
 def buscar_por_id_rol():
     print ("1.- Asistente \n 2.-Contador \n 3.-Desarrolador \n 4.-Supervisor")
     id_rol = input("Ingrese el id del rol: \n")
@@ -142,7 +154,6 @@ def buscar_por_id_rol():
         print(f"Ocurrió un error: {e}")
 
 
-
 def singular_data_to_contract(df: pd.DataFrame, index_row:int):
     sub_df = df.iloc[index_row]
     date = sub_df['fecha_ingreso']
@@ -155,4 +166,3 @@ def singular_data_to_contract(df: pd.DataFrame, index_row:int):
     profession = sub_df['profesion']
     salary = sub_df['Sueldo']
     example_contract(date, rol, address, rut, full_name, nationality, birth_date, profession, str(salary))
-
