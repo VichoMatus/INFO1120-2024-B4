@@ -30,9 +30,9 @@ sueldos_promedio = [resultado[1] for resultado in resultados]
 # Generar el gráfico de barras
 plt.figure(figsize=(10, 6))
 plt.barh(profesiones, sueldos_promedio, color='skyblue')
-plt.xlabel('Sueldo promedio')
-plt.ylabel('Profesión')
-plt.title('Promedio de sueldo por profesión')
+plt.xlabel("Sueldo promedio")
+plt.ylabel("Profesión")
+plt.title("Promedio de sueldo por profesión")
 plt.gca().invert_yaxis()  # Invertir el eje y para que las profesiones más altas estén arriba
-
+plt.tight_layout()  # Ajustar el diseño para evitar cortes
 plt.show()
