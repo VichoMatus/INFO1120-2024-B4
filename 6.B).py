@@ -27,7 +27,7 @@ cantidad_personas = [resultado[1] for resultado in resultados]
 
 # Crear el gráfico de pastel
 plt.figure(figsize=(7,7))
-plt.pie(cantidad_personas, labels=profesiones, autopct='%1.1f%%')
-plt.title('Distribución de profesiones')
-plt.axis('equal')  # Hace que el gráfico de pastel sea un círculo en lugar de una elipse
+plt.pie(cantidad_personas, labels=profesiones, autopct='%1.1f%%', startangle=90)
+plt.title("Distribución de profesiones")
+plt.axis("equal")  # Hace que el gráfico de pastel sea un círculo en lugar de una elipse
 plt.show()

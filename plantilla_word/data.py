@@ -9,21 +9,22 @@ print ("Ingrese '2' para buscar datos por rango.\n",a)
 
 try:
     rqst = int (input ("Ingrese aqui: "))
+    print(a)
     if rqst < 1 or rqst > 2:
         print("Ingrese '1' u '2'. \n",a)
     elif rqst == 1:
-        print("Usted ha seleccionado 'buscar datos por rut'.\n",a)
+        print("Usted ha seleccionado 'buscar datos por rut'.\n")
         fc.buscar_por_rut()
     elif rqst == 2: 
-        print("Usted ha seleccionado buscar por rango \nSeleccione el rango que desea buscar:\n",a)
-        print("Ingrese 1.- Si desea buscar por indice de filas.")
-        print("Ingrese 2.- Si desea buscar por Nacionalidad. \nIngrese 3.- Si desea buscar por numero de rol.")
+        print("Usted ha seleccionado buscar por rango.\nSeleccione el rango que desea buscar:\n",a)
+        print("Ingrese 1.- Si desea buscar por Indice de Filas.")
+        print("Ingrese 2.- Si desea buscar por Nacionalidad.\nIngrese 3.- Si desea buscar por Numero de Rol.")
         print(a)
-        choice = int(input("Ingrese aqui:"))
+        choice = int(input("Ingrese aqui: "))
 
         print(a)
         if choice < 1 or choice > 3:
-            print("Ingrese una opcion valida entre '1' a '5'. \n",a)
+            print("Ingrese una opcion valida entre '1' a '3'. \n",a)
         if choice == 1 :
             print("Usted ha seleccionado 'Buscar datos por Indice de filas'.\n",a)
 
