@@ -19,10 +19,79 @@ def PDFContratoPorRut(df: pd.DataFrame, rut):
     profession = sub_df['profesion']
     salary = sub_df['Sueldo']
     example_contract(date, rol, address, rut, full_name, nationality, birth_date, profession, str(salary))
+    print("Contrato para", full_name,"generado exitosamente.")
     return None
 
+def PDFContratoPorNacionalidad(df: pd.DataFrame, nacionalidad:str):
+# Filtrar el DataFrame para obtener las filas que corresponden a la nacionalidad proporcionada
+    sub_df = df[df['nacionalidad'] == nacionalidad]
+    try:
+        rango = len(sub_df)
+    
+        for i in range(rango):
+            fila = sub_df.iloc[i]
+            date = fila['fecha_ingreso']
+            rol = fila['Rol']
+            address = fila['residencia']
+            rut = fila['rut']
+            full_name = fila['nombre_completo']
+            nationality = fila['nacionalidad']
+            birth_date = fila['fecha_de_nacimiento']
+            profession = fila['profesion']
+            salary = fila['Sueldo']
+        
+            # Llamar a la función para generar el contrato
+            example_contract(date, rol, address, rut, full_name, nationality, birth_date, profession, str(salary))
+            print("Contrato para", full_name,"generado exitosamente.")
 
+    except ValueError:
+        print("Ha ocurrido un error, ingrese valores validos")
 
+def PDFContratoPorFilas(df: pd.DataFrame, start:int, end:int ):
+    # Filtrar el DataFrame para obtener la fila que corresponde al rut proporcionado
+    try:
+        for i in range(start,end+1):            
+            fila = df.iloc[i]
+            date = fila['fecha_ingreso']
+            rol = fila['Rol']
+            address = fila['residencia']
+            rut = fila['rut']
+            full_name = fila['nombre_completo']
+            nationality = fila['nacionalidad']
+            birth_date = fila['fecha_de_nacimiento']
+            profession = fila['profesion']
+            salary = fila['Sueldo']
+        
+            # Llamar a la función para generar el contrato
+            example_contract(date, rol, address, rut, full_name, nationality, birth_date, profession, str(salary))
+            print("Contrato para", full_name,"generado exitosamente.")
+    except ValueError:
+        print("Ha ocurrido un error, ingrese valores validos")
+
+def PDFContratoPorID_Rol(df: pd.DataFrame, id_rol:int):
+# Filtrar el DataFrame para obtener las filas que corresponden a la nacionalidad proporcionada
+    filas = df[df['id_rol'] == id_rol]
+    try:
+       
+    
+        for i in range(len(filas)):
+            fila = filas.iloc[i]
+            date = fila['fecha_ingreso']
+            rol = fila['Rol']
+            address = fila['residencia']
+            rut = fila['rut']
+            full_name = fila['nombre_completo']
+            nationality = fila['nacionalidad']
+            birth_date = fila['fecha_de_nacimiento']
+            profession = fila['profesion']
+            salary = fila['Sueldo']
+        
+            # Llamar a la función para generar el contrato
+            example_contract(date, rol, address, rut, full_name, nationality, birth_date, profession, str(salary))
+            print("Contrato para", full_name,"generado exitosamente.")
+
+    except ValueError:
+        print("Ha ocurrido un error, ingrese valores validos")
 # Consulta para los datos
 #consu = """ SELECT * FROM personas as p INNER JOIN salarios as s ON p.id_rol = s.id_salarios """
 #datos =  pd.read_sql_query(consu,sql)
