@@ -1,15 +1,11 @@
-import pandas as pd, funciones as fc
+import pandas as pd 
+import funciones as fc
 from word_gen import example_contract
 
-
-a = "--------------------------------------------------------------------------------------------------------------------"
-
+a= "--------------------------------------------------------------------------------------------------------------------"
 
 print (a ,"\nIngrese '1' para buscar datos por rut.")
 print ("Ingrese '2' para buscar datos por rango.\n",a)
-
-
-a= "--------------------------------------------------------------------------------------------------------------------"
 
 try:
     rqst = int (input ("Ingrese aqui: "))
@@ -19,13 +15,6 @@ try:
         print("Usted ha seleccionado 'buscar datos por rut'.\n",a)
         fc.buscar_por_rut()
     elif rqst == 2: 
-
-        print("Usted ha seleccionado buscar por rango \n SelecS el rango que desea buscar:\n",a)
-        print("Ingrese 1.- Si desea buscar por indice de filas.")
-        print("Ingrese 2.- Si desea buscar por Nacionalidad. \nIngrese 3.- Si desea buscar por numero de rol.")
-        print(a)
-        choice = int(input("Ingrese aqui: "))
-
         print("Usted ha seleccionado buscar por rango \nSeleccione el rango que desea buscar:\n",a)
         print("Ingrese 1.- Si desea buscar por indice de filas.")
         print("Ingrese 2.- Si desea buscar por Nacionalidad. \nIngrese 3.- Si desea buscar por numero de rol.")
@@ -45,8 +34,6 @@ try:
         if choice == 3 :
             print("Usted ha seleccionado 'Buscar datos por Numero de rol'.\n",a)
             fc.buscar_por_id_rol()
-
-
 except :
     print("Ingrese valores validos.")
 
