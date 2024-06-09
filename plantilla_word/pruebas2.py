@@ -1,6 +1,7 @@
 import sqlite3
 import pandas as pd
 
+
 def buscar_y_mostrar_por_rut():
     # Solicitar al usuario que ingrese el RUT
     rut = input("Ingrese el RUT (ejemplo: 12345678-9): ")
