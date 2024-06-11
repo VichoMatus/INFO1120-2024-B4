@@ -47,10 +47,9 @@ def PDFContratoPorNacionalidad(df: pd.DataFrame, nacionalidad:str):
     except ValueError:
         print("Ha ocurrido un error, ingrese valores validos")
 
-def PDFContratoPorFilas(df: pd.DataFrame, start:int, end:int ):
-    # Filtrar el DataFrame para obtener la fila que corresponde al rut proporcionado
+def PDFContratoPorFilas(df: pd.DataFrame, start: int, end: int):
     try:
-        for i in range(start,end+1):            
+        for i in range(start, end):
             fila = df.iloc[i]
             date = fila['fecha_ingreso']
             rol = fila['Rol']
@@ -61,12 +60,15 @@ def PDFContratoPorFilas(df: pd.DataFrame, start:int, end:int ):
             birth_date = fila['fecha_de_nacimiento']
             profession = fila['profesion']
             salary = fila['Sueldo']
-        
+            
             # Llamar a la función para generar el contrato
             example_contract(date, rol, address, rut, full_name, nationality, birth_date, profession, str(salary))
-            print("Contrato para", full_name,"generado exitosamente.")
+            print("Contrato para", full_name, "generado exitosamente.")
     except ValueError:
-        print("Ha ocurrido un error, ingrese valores validos")
+        print("Ha ocurrido un error, ingrese valores válidos.")
+    except IndexError:
+        print("Ha ocurrido un error: índice fuera de rango. Por favor, verifique los índices.")
+
 
 def PDFContratoPorID_Rol(df: pd.DataFrame, id_rol:int):
 # Filtrar el DataFrame para obtener las filas que corresponden a la nacionalidad proporcionada
